@@ -20,7 +20,7 @@ script:
   - vendor/bin/phpunit
 after_script:
   # Travis will attempt to connect to the server over ssh and run `cd /var/www/html` and then `git pull origin master` to update the content on the server
-  - ssh -i ./deploy_key root@104.248.172.220 cd /var/www/travis-ci-article && git pull origin master
+  - ssh -i ./deploy_key root@104.248.172.220 cd /var/www/html/travis-article-sample-project && git pull origin master
 before_install:
   - openssl aes-256-cbc -K $encrypted_dfdcfd5172af_key -iv $encrypted_dfdcfd5172af_iv -in deploy_key.enc -out ./deploy_key -d
   - eval "$(ssh-agent -s)"
